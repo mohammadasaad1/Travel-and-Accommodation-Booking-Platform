@@ -58,8 +58,8 @@ const LoginForm: React.FC = () => {
           placeholder="Username"
           value={formik.values.username}
           onChange={formik.handleChange}
-          error={formik.touched.username && Boolean(formik.errors.username)}
-          helperText={formik.touched.username && formik.errors.username}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -69,6 +69,7 @@ const LoginForm: React.FC = () => {
           }}
           variant="outlined"
           disabled={formik.isSubmitting}
+          required
         />
 
         <TextField
@@ -90,6 +91,7 @@ const LoginForm: React.FC = () => {
           }}
           variant="outlined"
           disabled={formik.isSubmitting}
+          required
         />
         <GGButton
           sx={{ width: "100%" }}

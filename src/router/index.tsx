@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "../pages/login";
-import MainLayout from "../layouts/MainLayout";
+import Dashboard from "../layouts/Dashboard";
 const AppRouter: React.FC<{}> = () => {
   const isAuthenticated = true;
 
@@ -14,7 +14,7 @@ const AppRouter: React.FC<{}> = () => {
           path="/home"
           element={
             isAuthenticated ? (
-              <MainLayout>hello </MainLayout>
+              <Dashboard pathname="home" navigated={true} />
             ) : (
               <Navigate to="/login" replace />
             )

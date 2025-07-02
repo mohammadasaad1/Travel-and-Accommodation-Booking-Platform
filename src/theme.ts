@@ -25,11 +25,8 @@ const theme = createTheme({
           },
           "& .MuiInputBase-input::placeholder": {
             fontSize: "1rem",
-            color: "rgba(175, 196, 181, 0.575)",
+            color: "rgba(210, 224, 214, 0.575)",
           },
-        },
-        input: {
-          color: "white",
         },
       },
     },
