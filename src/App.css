@@ -1,7 +1,11 @@
+@import "leaflet/dist/leaflet.css";
 * {
   padding: 0;
   margin: 0;
 }
 img {
   display: block;
+}
+body {
+  background-color: #f7f9fb !important;
 }

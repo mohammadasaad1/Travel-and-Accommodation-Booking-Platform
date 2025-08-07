@@ -23,7 +23,7 @@ export default function FeaturedDealsSection() {
     queryKey: ["featuredDeals"],
     queryFn: fetchFeaturedDeals,
   });
-
+  console.log(deals);
   if (isLoading) {
     return (
       <Typography align="center" mt={4}>
@@ -46,11 +46,12 @@ export default function FeaturedDealsSection() {
           Featured Deals
         </Typography>
       </Box>
+
       <Grid
         container
-        spacing={4}
+        gap={10}
         sx={{
-          justifyContent: { xs: "center", sm: "center", xl: "space-between" },
+          justifyContent: { xs: "center", sm: "center", xl: "center" },
           alignItems: "center",
         }}
       >

@@ -1,18 +1,11 @@
 import React from "react";
-import { fetchFeaturedDeals } from "../../api/home";
-import { useQuery } from "@tanstack/react-query";
+
 import { Box, Typography } from "@mui/material";
 import HotelSearchBar from "../../components/HotelSearchBar";
 import FeaturedDealsSection from "./FeaturedDealsSection";
 import TrendingDestinations from "./TrendingDestinations";
 
 const Home: React.FC = () => {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["featuredDeals"],
-    queryFn: fetchFeaturedDeals,
-  });
-  if (isLoading) return <div>loding...</div>;
-  console.log(data);
   return (
     <Box>
       <Box
@@ -70,6 +63,7 @@ const Home: React.FC = () => {
         </Box>
       </Box>
       <FeaturedDealsSection />
+      {/* <RecentHotels userId={1} /> do not work... */}
       <TrendingDestinations />
     </Box>
   );

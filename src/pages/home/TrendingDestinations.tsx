@@ -20,7 +20,7 @@ const TrendingDestinations: React.FC = () => {
   return (
     <Box mt={6} p={4}>
       <Typography variant="h4" fontWeight={700} color="text.primary" mb={8}>
-        Featured Deals
+        Trending Destination
       </Typography>
       <Grid
         container

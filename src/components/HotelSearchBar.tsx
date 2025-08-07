@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { TextField, InputAdornment, Paper, Box, Input } from "@mui/material";
+import { TextField, InputAdornment, Paper, Box } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { useQuery } from "@tanstack/react-query";
-import { searchHome } from "../api/home";
+
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { format } from "date-fns";
 import CustomDatePicker from "../ui/CustomDatePicker";
 import GGButton from "../ui/GGButton";
 import CustomInput from "../ui/CustomInput";
+import { useNavigate } from "react-router-dom";
 
 export default function HotelSearchBar() {
   const [destination, setDestination] = useState("");
@@ -17,35 +17,19 @@ export default function HotelSearchBar() {
   const [rooms, setRooms] = useState(1);
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
-  ``;
 
-  const [searchParams, setSearchParams] = useState<any>(null);
-
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ["homeSearch", searchParams],
-    queryFn: () =>
-      searchHome({
-        destination,
-        checkInDate: checkIn ? format(checkIn, "yyyy-MM-dd") : "",
-        checkOutDate: checkOut ? format(checkOut, "yyyy-MM-dd") : "",
-        adults,
-        children,
-        rooms,
-      }),
-    enabled: !!searchParams, //ما بيصير رن للكويري الا اذا تغير الرابط \\ يعني اذا المستخدم كبس على زر البحث
-  });
-
+  const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSearchParams({
+    const query = new URLSearchParams({
       destination,
       checkInDate: checkIn ? format(checkIn, "yyyy-MM-dd") : "",
       checkOutDate: checkOut ? format(checkOut, "yyyy-MM-dd") : "",
-      adults,
-      children,
-      rooms,
-    });
-    refetch();
+      adults: adults.toString(),
+      children: children.toString(),
+      rooms: rooms.toString(),
+    }).toString();
+    navigate(`/search?${query}`);
   };
 
   return (

@@ -4,9 +4,9 @@ export default function sidebarFooter() {
   return (
     <Typography
       variant="caption"
-      sx={{ m: 1, whiteSpace: "nowrap", overflow: "hidden" }}
+      sx={{ whiteSpace: "nowrap", overflow: "hidden", ml: 0.5 }}
     >
-      {`© ${new Date().getFullYear()} Made with love by Mohammad As'ad`}
+      {`© ${new Date().getFullYear()} FTS`}
     </Typography>
   );
 }
